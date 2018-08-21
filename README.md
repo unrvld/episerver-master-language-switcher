@@ -1,4 +1,4 @@
-# episerver-master-language-switcher
+# Episerver Master Language Switcher
 An episerver project that demonstrates how to change the master language after a site has been created.
 
 Based upon a project by Adam Najmanowicz https://blog.najmanowicz.com/2009/04/06/advanced-language-manipulation-tool-for-episerver/ and updated to Episerver 11.
