@@ -41,12 +41,23 @@ namespace LanguageMigration.Tools
 
             if (PageSelector.PageLink != null && !string.IsNullOrEmpty((string)InputLanguage2.PropertyData.Value))
             {
-                RunSwitchLanguage(PageSelector.PageLink.ID, (string)InputLanguage2.PropertyData.Value, ckbRecursiveReplace.Checked, rbgLanguageSwitchType.SelectedIndex == 0);
+                try
+                {
+                    RunSwitchLanguage(PageSelector.PageLink.ID, (string)InputLanguage2.PropertyData.Value, ckbRecursiveReplace.Checked, rbgLanguageSwitchType.SelectedIndex == 0);
 
-                RunSwitchBlockLanguage(PageSelector.PageLink.ID, (string)InputLanguage2.PropertyData.Value, ckbRecursiveReplace.Checked, rbgLanguageSwitchType.SelectedIndex == 0);
+                    RunSwitchBlockLanguage(PageSelector.PageLink.ID, (string)InputLanguage2.PropertyData.Value, ckbRecursiveReplace.Checked, rbgLanguageSwitchType.SelectedIndex == 0);
 
-                contentCacheRemover.Clear();
+                    contentCacheRemover.Clear();
+
+                    litMessage.Text = "Page language changed.";
+                }
+                catch (Exception ex)
+                {
+                    litMessage.Text = string.Format("Page change unsuccesfull:<br>{0}", ex.Message);
+                }
             }
+
+            litMessage.Text = "Page language not changed. No page or language selected.";
         }
 
         public IEnumerable<int> GetContentHierarchy(int pageId)

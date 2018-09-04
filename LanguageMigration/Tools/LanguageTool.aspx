@@ -23,7 +23,7 @@
                     </div>
                     <div class="epi-size10">
                         Switch mode:
-                        <asp:radiobuttonlist runat="server" id="rbgLanguageSwitchType" CssClass="epi-size15">
+                        <asp:radiobuttonlist runat="server" id="rbgLanguageSwitchType" cssclass="epi-size15">
                             <asp:ListItem Text="Just switch between existing Language branches making the new one a master language" Selected="True" Value="1"></asp:ListItem>
                             <asp:ListItem Text="Convert the current master branch to new Language - the target language may not exist yet." Selected="False" Value="0"></asp:ListItem>
                         </asp:radiobuttonlist>
@@ -36,12 +36,20 @@
                 <table>
                     <tr>
                         <td colspan="2">
-                            <asp:button id="btnChangeLanguage" runat="server" text="Change Language" onclick="btnChangeLanguage_Click" CssClass="epi-cmsButton-text epi-cmsButton-tools" />
+                            <asp:button id="btnChangeLanguage" runat="server" text="Change Language" onclick="btnChangeLanguage_Click" cssclass="epi-cmsButton-text epi-cmsButton-tools" />
                         </td>
                     </tr>
                 </table>
             </form>
         </div>
         <p></p>
+
+        <table>
+            <tr>
+                <td>
+                    <asp:literal id="litMessage" text="" runat="server" enableviewstate="false" />
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
